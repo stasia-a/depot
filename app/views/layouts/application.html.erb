@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE htmil>
 <html>
 <head>
   <title>Depot</title>
@@ -13,8 +13,13 @@
   </div>
   <div id="columns">
     <div id="side">
+      <% if @cart  %>
+        <%= hidden_div_if @cart.line_items.empty?, id: "cart" do -%>
+          <%= render @cart %>
+        <% end -%>
+    <% end %> 
       <ul>
-        <p><%= date_loaded %></p>
+ 
         <li><a href="http://www....">Home</a></li>
         <li><a href="http://www..../faq">Questions</a></li>
         <li><a href="http://www..../news">News</a></li>
@@ -23,6 +28,7 @@
     </div>
     <div id="main">
       <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
 </body>

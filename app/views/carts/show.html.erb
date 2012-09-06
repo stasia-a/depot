@@ -1,0 +1,9 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<%= render @cart %>
+
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+
+
